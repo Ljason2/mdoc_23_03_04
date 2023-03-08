@@ -31,82 +31,73 @@
 ### 기능명
 1. 상품을 새롭게 정렬하는 기능
     
-        ProductList.js에 새로운 sortBy2라는 스테이트를 선언해줘서 기본 값으로 title을 넣어서 상품명 순으로 정렬되게하고,
-        ul>li안에 있는 상품명순, 최고가순, 최저가순, 내용순을 클릭할 때마다 sortBy2가 변하게 하여 
-        filterAppointments2가 바뀌어 새로운 배열이 되면 상품이 새롭게 정렬된다.
+        useState를 사용해서 상품명순, 최고가순, 최저가순, 내용순을 클릭할 때마다 State가 바뀌면
+        상품을 진열하는 배열이 바뀌어 상품이 새롭게 정렬된다.
 
     
 
 2. 페이지 기능
     
-        postsPerPage=4에서 각 페이지당 4개의 상품이 들어가있고, indexOfLast와 indexOfFirst를 선언해주었다.
-        ProductList.js 맨 아래에는 Pagination 컴포넌트가 있어서 for문을 이용해서 반복문으로 총 몇개의 페이지가 나올 수 있는지 
-        pageNumbers라는 배열을 만들어서 map 매서드를 돌려서 li를 반복해서 각 페이지를 만들어주었다. 
-        그리고 각 페이지를 클릭할 때마다 currentPage가 바뀌어서  indexOfLast와 indexOfFirst가
-        바뀌어 slice매서드로 인해 새로운 배열이 재구성되어 페이지마다   새로운 상품이 뜨게끔 했다.
+        postsPerPage=4에서 각 페이지당 4개의 상품이 들어가게했고, indexOfLast와 indexOfFirst를 선언해주었다.
+        Pagination 컴포넌트에서 for문을 이용해서 반복문으로 배열을 만들어서 map 매서드를 돌리면 각 페이지가 만들어지는데
+        각 페이지를 클릭하면 slice매서드로 인해 새로운 배열이 재구성되어 페이지마다 새로운 상품이 뜨게 했다.
 
 
 3.  상품검색기능
 
-        form요소 안에 검색창인 input요소가 있는데 글자를 칠 때마다 onChange가 되어 
-        handleKeywordChange 함수가 실행되어 keyword 값이 바뀐다. 그리고 검색버튼을 누르면 onSubmit이 되어 
-        handleSubmit함수가 실행되어 initKeyword가 바뀌어 courses 배열이 바뀌면 키워드에 해당하는
-        상품이 검색되게 된다.
+        글자를 칠 때마다 keyword를 바꿔주는 함수가 실행되고 검색버튼을 누르면 initKeyword를 바꿔주는 함수가 실행되어 
+        배열이 바뀌면 키워드에 해당하는 상품이 검색되게 된다.
 
 
 4.  상세보기를 클릭하면 상품 상세페이지로 이동하는 기능 
     
-        Main.js에 있는 Route안에 path=":courseSlug" 을 넣고 ProductItem.js의 상세보기 버튼에 
+        Route안에 path=":courseSlug" 을 넣고 ProductItem.js의 상세보기 버튼에 
         to={`/productList/${course.slug}`}을 넣는다. useParams()로 파라미터 값을 가져와서 객체를 받아 그걸로 상품의 정보를 보여준다. 
     
 
 
 5.  장바구니 담는 기능
 
-        장바구니를 클릭하면 onClick으로 인해 handlAddwishList 함수가 발생되어 addWishList 함수가 실행되어 
-        localStorage에 속성과 값이 추가된다. 그렇게하여 장바구니에 담기게 된다.
+        장바구니를 클릭하면 localStorage에 속성, 값을 저장하는 함수로 인해 상품이 장바구니에 담기게 된다.
 
 
 6.  장바구니 담자마자 장바구니로 이동하는 기능
 
-        useNavigate를 사용해서 navigate('/wishlist')를 쓰면 바로 이동할 수 있다.
+        useNavigate를 사용하면 장바구니로 바로 이동할 수 있다.
 
 7.  장바구니 삭제 기능
     
-        장바구니 삭제버튼을 누르면 onClick이 되어 handleDelete 함수가 실행되는데 deleteWishList 함수도 실행되어 
-        localStorage에 있는 속성이 사라져 courses 배열이 바뀌어 담겨있는 상품이 사라지게 된다.
+        장바구니 삭제버튼을 누르면 localStorage에 있는 속성이 사라지는 함수로 인해 배열이 바뀌어 담겨있는 상품이 사라지게 된다.
         
 8. 리뷰남기기 기능
 
-        빈 칸에 글자를 입력하면 onChange가 발생되어 setFromData 함수로 인해 formData의 값이 입력한 값으로 바뀌는데
-        리뷰 남기기 버튼을 누르면 formPublish 함수가 발생되어 onSendAppointment 함수로 인해서 배열의 끝 부분에 
-        새로운 객체를 추가하게된다. 그럼으로써 리뷰가 추가되게 된다.
+        빈 칸에 입력한 정보를 받기위해서 useState를 사용해야되고 리뷰 남기기 버튼을 누르면 배열의 끝 부분에 
+        새로운 객체를 추가하는 formPublish 함수가 발생되어 리뷰를 추가할 수 있게 된다.
 
 9. 리뷰를 남기면 새로운 창이 뜨는 기능
 
-        리뷰를 남기면 새로운 창이 뜨고 리뷰이벤트의 소식을 알려주고, 남긴 리뷰내용을 다시 보여주는데,
-        그러기 위해 productName2, toggleForm2, score2, userName2, photo2 등의 useState를 선언해준다.
-        리뷰 남기기 버튼을 누르면 formPublish 함수가 발생되어 set 함수가 실행되어 state 값을 수정함으로써
-        남긴 리뷰내용을 보여주고, 리뷰이벤트 사진이 뜨게된다.
+        리뷰를 남기면 리뷰이벤트의 소식을 알려주고, 남긴 리뷰내용을 다시 보여주는 새로운 창이 뜨는데
+        그러기위해서 먼저 useState를 선언해줘야한다.
+        리뷰 남기기 버튼을 누르면 formPublish 함수가 발생되어 state 값을 수정함으로써 새로운 창이 뜨게된다.
 
 10. 리뷰 검색기능
 
-        query2라는 state를 선언해주고 검색창안에 글자를 입력하면 onChange가 일어나 setQuery2 함수를 실행해
-        query2가 입력값으로 바뀌는데 이때 검색버튼을 누르면 onClick으로 인해 onQueryChange함수가 발생해 query 값이
-        query2 값으로 수정된다. 그러면 filterAppointments 배열이 바뀌게 되어 검색한 리뷰가 나타나게 된다.
+        useState를 사용해서 글자를 칠 때마다 query2가 바뀌고 검색버튼을 누르면 query 값이
+        query2 값으로 수정되어 배열이 바뀌면 검색한 리뷰가 나타나게 된다.
         
 11. 리뷰 정렬기능
 
-        정렬버튼을 누르면 onClick이 발생하여 setToggleSort함수가 작동해 DropDown 컴포넌트가 보여지게 된다.
-        각각 li에 있는 메뉴를 클릭하면 onClick으로 인하여 onSortChange 함수가 발생하고 sortBy의 값이 변해
-        filterAppointments 배열이 바뀌어 리뷰들이 해당메뉴에따라 정렬되게 된다.
+
+        정렬버튼을 누르면 DropDown 컴포넌트가 보여지고, 작성자, 상품명, 상품후기, 별점을 클릭할 때마다 
+        State를 바꿔주는 함수가 발생해 배열이 바뀌어 리뷰들이 해당메뉴에따라 정렬되게 된다.
         
 
 12. 리뷰 삭제기능
 
-        전체사용후기에서 리뷰삭제버튼을 누르면 onClick으로 인해 onDelectAppoint 함수가 작동하여 
-        해당상품의 appointment.id 와 같지 않은 객체들의 배열로 filterAppointments가 바뀜으로써
-        리뷰가 삭제되게 된다.
+
+        리뷰삭제버튼을 누르면 해당 리뷰를 제외한 다른 리뷰들로 구성된 배열을 만드는 onDelectAppoint 함수가
+        작동되어 리뷰가 삭제되게 된다.
+
 
 13. 화장품 사진을 클릭하면 체크이미지로 바뀌는 기능(이벤트 페이지)
 
