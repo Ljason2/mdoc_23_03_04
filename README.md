@@ -1,70 +1,173 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# mdoc 프로젝트
 
-In the project directory, you can run:
+## 프로젝트 설명
+    남성들도 화장하는 시대가 도래하여 남성 전문 화장품을 판매하는 사이트로서 남성들의 피부고민상담을 들어주고,
+    피부타입별 맞춤 화장품을 제공해주는 사이트 입니다.
+## 일정
+    2월 20일부터 3월 04일 까지
 
-### `npm start`
+## 디바이스
+    PC
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 개발언어
+    React, jquery, javascript, html5, css
 
-### `npm test`
+## 개발환경
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+        VScode, npm, Parcel-bundler, Node.js
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 배포링크
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+        배포방식은 AWS: S3의 배포방식을 이용하였습니다.
+ - https://jason-mdoc-03-04.s3.amazonaws.com/index.html
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 프로젝트 설명
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 기능명
+1. 상품을 새롭게 정렬하는 기능
+    
+        ProductList.js에 새로운 sortBy2라는 스테이트를 선언해줘서 기본 값으로 title을 넣어서 상품명 순으로 정렬되게하고, ul>li안에 있는 상품명순, 최고가순, 최저가순, 내용순을 클릭할 때마다 sortBy2가 변하게 하여 filterAppointments2가 바뀌어 새로운 배열이 되면 상품이 새롭게 정렬된다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. 페이지 기능
+    
+        postsPerPage=4에서 각 페이지당 4개의 상품이 들어가있고, indexOfLast와 indexOfFirst를 선언해주었다.
+        ProductList.js 맨 아래에는 Pagination 컴포넌트가 있어서 for문을 이용해서 반복문으로 총 몇개의 페이지가 나올 수 있는지 pageNumbers라는 배열을 만들어서 map 매서드를 돌려서 li를 반복해서 각 페이지를 만들어주었다. 그리고 각
+        페이지를 클릭할 때마다 currentPage가 바뀌어서  indexOfLast와 indexOfFirst가
+        바뀌어 slice매서드로 인해 새로운 배열이 재구성되어 페이지마다   새로운 상품이 뜨게끔 했다.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+3.  상품검색기능
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+        form요소 안에 검색창인 input요소가 있는데 글자를 칠 때마다 onChange가 되어 handleKeywordChange 함수가 실행되어 keyword 값이 바뀐다. 
+        그리고 검색버튼을 누르면 onSubmit이 되어 handleSubmit함수가 실행되어 initKeyword가 바뀌어 courses 배열이 바뀌면 키워드에 해당하는
+        상품이 검색되게 된다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+4.  상세보기를 클릭하면 상품 상세페이지로 이동하는 기능 
+    
+        Main.js에 있는 Route안에 path=":courseSlug" 을 넣고 ProductItem.js의 상세보기 버튼에 to={`/productList/${course.slug}`}을 넣는다. useParams()로 파라미터 값을
+        가져와서 객체를 받아 그걸로 상품의 정보를 보여준다. 
+    
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+5.  장바구니 담는 기능
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+        장바구니를 클릭하면 onClick으로 인해 handlAddwishList 함수가 발생되어 addWishList 함수가 실행되어 localStorage에 속성과 값이 추가된다.
+        그렇게하여 장바구니에 담기게 된다.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+6.  장바구니 담자마자 장바구니로 이동하는 기능
 
-### Advanced Configuration
+        useNavigate를 사용해서 navigate('/wishlist')를 쓰면 바로 이동할 수 있다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+7.  장바구니 삭제 기능
+    
+        장바구니 삭제버튼을 누르면 onClick이 되어 handleDelete 함수가 실행되는데 deleteWishList 함수도 실행되어 localStorage에 있는 속성이 사라져 courses 배열이 바뀌어
+        담겨있는 상품이 사라지게 된다.
+        
+8. 리뷰남기기 기능
 
-### Deployment
+        빈 칸에 글자를 입력하면 onChange가 발생되어 setFromData 함수로 인해 formData의 값이 입력한 값으로 바뀌는데
+        리뷰 남기기 버튼을 누르면 formPublish 함수가 발생되어 onSendAppointment 함수로 인해서 배열의 끝 부분에 
+        새로운 객체를 추가하게된다. 그럼으로써 리뷰가 추가되게 된다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+9. 리뷰를 남기면 새로운 창이 뜨는 기능
 
-### `npm run build` fails to minify
+        리뷰를 남기면 새로운 창이 뜨고 리뷰이벤트의 소식을 알려주고, 남긴 리뷰내용을 다시 보여주는데,
+        그러기 위해 productName2, toggleForm2, score2, userName2, photo2 등의 useState를 선언해준다.
+        리뷰 남기기 버튼을 누르면 formPublish 함수가 발생되어 set 함수가 실행되어 state 값을 수정함으로써
+        남긴 리뷰내용을 보여주고, 리뷰이벤트 사진이 뜨게된다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+10. 리뷰 검색기능
+
+        query2라는 state를 선언해주고 검색창안에 글자를 입력하면 onChange가 일어나 setQuery2 함수를 실행해
+        query2가 입력값으로 바뀌는데 이때 검색버튼을 누르면 onClick으로 인해 onQueryChange함수가 발생해 query 값이
+        query2 값으로 수정된다. 그러면 filterAppointments 배열이 바뀌게 되어 검색한 리뷰가 나타나게 된다.
+        
+11. 리뷰 정렬기능
+
+        정렬버튼을 누르면 onClick이 발생하여 setToggleSort함수가 작동해 DropDown 컴포넌트가 보여지게 된다.
+        각각 li에 있는 메뉴를 클릭하면 onClick으로 인하여 onSortChange 함수가 발생하고 sortBy의 값이 변해
+        filterAppointments 배열이 바뀌어 리뷰들이 해당메뉴에따라 정렬되게 된다.
+        
+
+12. 리뷰 삭제기능
+
+        전체사용후기에서 리뷰삭제버튼을 누르면 onClick으로 인해 onDelectAppoint 함수가 작동하여 해당상품의 appointment.id
+        와 같지 않은 객체들의 배열로 filterAppointments가 바뀜으로써
+        리뷰가 삭제되게 된다.
+
+13. 화장품 사진을 클릭하면 체크이미지로 바뀌는 기능(이벤트 페이지)
+
+        figure에 속하는 이미지요소의 src 값을 바꿔주는 함수 toggleImg를 정의하여 figure을 클릭할 때마다 onClick으로 인해 toggleImg가 실행되어 화장품 사진이 체크이미지로 바뀌게 된다.
+
+14. 화장품 사진을 올바른 순서로 클릭하면 성공사진과 화장이 멋지게 잘되었습니다가 뜨고, 잘못된 순서로 클릭하면 실패사진과 화장이 실패했습니다ㅠㅠ가 뜨게하기.
+
+        arr이라는 빈 배열을 가진 state를 정의해주고, arr2라는 올바른 순서를 가진 숫자의 배열을 정의해준다. 그리고 blockChange 라는 이미지의 display에 관여하는 state를 정의해준다.
+        화장품 사진(figure)을 클릭할 때마다 setArr 함수가 실행되고
+        정답확인을 클릭하면 answer 함수가 실행되어 if문에서 arr과 arr2를 비교하게 한다.
+        if문이 참이면 성공사진과 문구가 뜨고, 거짓이면 실패사진과 문구가 뜨게된다.
+
+15. 스크롤을 내리면 새로운 메뉴창이 뜨게 하는 기능
+    
+        Header 컴포넌트에 header2를 만들어서 또다른 header를 만든다. 
+        jquery를 이용해서 헤더의 높이 이상으로 스크롤을 내리면 
+        header2의 display가 flex가 되게하고, 그 외에는 display가 none이 되게 해서
+        평상시에는 보이지 않게 한다.
+
+16. 메뉴를 클릭하면 언더바 생기게하는 기능
+
+        
+        Header 컴포넌트에 function getLinkStyle({isActive}){
+        return {
+            textDecoration:isActive ? "underline":""
+        } 
+        } 을 만들어준다.
+        그리고 NavLink를 사용하고 그 안에 style={getLinkStyle}을 집어넣는다.
+
+
+
+## 피드백
+
+### 배운점
+    남성 전문 화장품을 판매하는 사이트로서 전체상품을 클릭하면 상품들이 페이지별로 있고, 정렬버튼을 통해 상품들을 해당 순서에 맞게 정렬할 수 있습니다. 전체 상품들을 키워드로 검색할 수 도 있습니다.
+
+
+    상세보기를 클릭하면 상품상세페이지로 들어가서 상품 상세내용과 상품후기를 볼 수 있습니다.
+    그리고 맨 밑에는 관련된 상품도 나와있으며 클릭하면 관련 상품 상세페이지로 들어갈 수 있습니다.
+    장바구니 버튼을 클릭하여 상품을 장바구니에 담으면 자동으로 장바구니 페이지로 이동하고, 품목을 삭제할 수도 있으며 원하면 상세보기를 눌러서 다시 상세페이지로 이동할 수도 있습니다.
+
+
+    피부고민상담 게시판에는 실시간 맞춤형 피부고민 통화상담신청란이 있고 남자들의 피부 고민들이 있습니다. 답변보기를 클릭하면 답변 페이지로 이동할 수있고, 고민자의 피부타입에 맞는 화장품을 4가지 정도 추천해드립니다.
+
+
+    리뷰게시판으로 이동하면 전체사용후기에서 구매자들의 리뷰를 볼 수 있고, 검색창에서 리뷰내용을 검색할 수 있고, 정렬 버튼을 통해 리뷰를 해당 순서에 맞게 정렬할 수 있습니다. 리뷰쓰기 버튼을 누르면 리뷰를 작성할 수 있으며, 상품에 대한 별점을 줄 수 있습니다. 리뷰를 다쓰면 새로운 창이 나와서 리뷰이벤트의 소식을 알려주고, 남긴 리뷰내용을 다시 보여줍니다. 
+
+
+    about us 게시판에는 엠도씨에 대한 간략한 소개들이 있으며, 엠도씨에 연락할 수 있는 다양한 방법이 있고,
+    고객님의 인적사항과 메세지를 양식에 적어 전송하는 폼이 있습니다. 
+
+
+    이벤트 게시판에는 건성피부인 남성을 올바른 순서대로 화장을 시켜주면 엠도씨 제품을 무료로 주는 이벤트를 하는데
+    각 화장품의 사진을 올바른 순서로 클릭하고난뒤에 정답확인버튼을 눌러서 맞췄는지 틀렸는지 확인할 수 있고, 
+    틀렸으면 홈으로가기 버튼을 눌러 홈으로 갈 수 있습니다.
+
+
+    로그인 페이지에는 로그인 양식이 있고 회원가입버튼을 통해 회원가입 페이지로 이동할 수 있습니다.
+    회원가입 페이지에는 회원가입 양식이 있습니다.
+
+
+    홈페이지에는 엠도씨 이벤트 상품과 추천상품들이 전시되어있고, 클릭하면 상품 상세페이지로 이동할 수 있습니다.
+    엠도씨 유튜브항목을 통해서 엠도씨 유튜브로 이동할 수 있고, 뉴스 항목을 통해서 엠도씨 뉴스로 이동할 수 있습니다.
+    홈페이지를 내리면 새로운 메뉴가 나와서 다른 메뉴로 이동할 수 있습니다.
+
+
+
+
