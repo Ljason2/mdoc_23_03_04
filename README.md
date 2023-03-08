@@ -18,7 +18,7 @@
 <img src="https://jason-img.s3.amazonaws.com/mdoc/react.png" style="width:100px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/jquery.png" style="width:126px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/js.png" style="width:56px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/html5.png" style="width:56px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/css.png" style="width:56px">
 ## 개발환경
 
-        VScode, npm, Parcel-bundler, Node.js
+        VScode, npm, Parcel-bundler, Node.js, AWS:S3
 
 
 ## 배포링크
