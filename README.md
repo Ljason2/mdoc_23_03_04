@@ -44,7 +44,7 @@
     
         Header 컴포넌트에 header2를 만들어서 또다른 header를 만든다. 
         jquery를 이용해서 헤더의 높이 이상으로 스크롤을 내리면 
-        header2의 display가 flex가 되게하고, 그 외에는 display가 none이 되게 해서
+        header2의 display가 flex가 되게하여 새로운 메뉴창이 뜨고, 그 외에는 display가 none이 되게 해서
         평상시에는 보이지 않게 한다.
 
 2. 메뉴를 클릭하면 언더바 생기게하는 기능
@@ -52,6 +52,7 @@
         
         Header 컴포넌트에 언더바가 생기게 하는 함수를 따로 정의해주고,
         react-router-dom으로부터 NavLink를 불러들여서 그 안에 style 속성을 집어넣는다.
+        그렇게하여 메뉴에 언더바가 생기게 할 수 있다.
 
 
 
