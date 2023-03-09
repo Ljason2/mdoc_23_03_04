@@ -50,12 +50,8 @@
 2. 메뉴를 클릭하면 언더바 생기게하는 기능
 
         
-        Header 컴포넌트에 function getLinkStyle({isActive}){
-        return {
-            textDecoration:isActive ? "underline":""
-        } 
-        } 을 만들어준다.
-        그리고 NavLink를 사용하고 그 안에 style={getLinkStyle}을 집어넣는다.
+        Header 컴포넌트에 언더바가 생기게 하는 함수를 따로 정의해주고,
+        react-router-dom으로부터 NavLink를 불러들여서 그 안에 style 속성을 집어넣는다.
 
 
 
