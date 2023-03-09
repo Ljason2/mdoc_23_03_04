@@ -2,22 +2,22 @@
 
 # mdoc 프로젝트
 
-## 사이트 소개
+## :star:사이트 소개
     남성들도 화장하는 시대가 도래하여 남성 전문 화장품을 판매하는 사이트로서 남성들의 피부고민상담을 들어주고,
     피부타입별 맞춤 화장품을 제공해주는 사이트 입니다.
-## 일정
+## :date:일정
     2월 20일부터 3월 04일 까지
 
-## 디바이스
+## :computer:디바이스
     PC
 
 
-## 개발언어
+## :lips:개발언어
 - React, jquery, javascript, html5, css
 
 <img src="https://jason-img.s3.amazonaws.com/mdoc/react.png" style="width:100px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/jquery.png" style="width:126px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/js.png" style="width:56px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/html5.png" style="width:56px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/css.png" style="width:56px">
 
-## 개발환경
+## :earth_americas:개발환경
 - VScode, npm, Parcel-bundler, Node.js, AWS:S3
 
 <img src="https://jason-img.s3.amazonaws.com/mdoc/vscode.png" style="width:90px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/npm.png" style="width:154px">
@@ -25,13 +25,13 @@
 <img src="https://jason-img.s3.amazonaws.com/mdoc/aws.png" style="width:92px">
 
 
-## 배포링크
+## :link:배포링크
 
 - 배포방식은 AWS: S3의 배포방식을 이용하였습니다.
 - [바로가기](https://jason-mdoc-03-04.s3.amazonaws.com/index.html)
 
 
-## 프로젝트 설명
+## :clipboard:프로젝트 설명
 
 ### 프로젝트 계획서
 - ppt 파일
@@ -162,7 +162,7 @@
 
 
 
-## 피드백
+## :pencil2:피드백
 
 ### 배운점
 
