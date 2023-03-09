@@ -33,6 +33,29 @@
 - ppt 파일
 ### 기능명
 
+
+ #### 헤더(Header)
+
+1. 스크롤을 내리면 새로운 메뉴창이 뜨게 하는 기능
+    
+        Header 컴포넌트에 header2를 만들어서 또다른 header를 만든다. 
+        jquery를 이용해서 헤더의 높이 이상으로 스크롤을 내리면 
+        header2의 display가 flex가 되게하고, 그 외에는 display가 none이 되게 해서
+        평상시에는 보이지 않게 한다.
+
+2. 메뉴를 클릭하면 언더바 생기게하는 기능
+
+        
+        Header 컴포넌트에 function getLinkStyle({isActive}){
+        return {
+            textDecoration:isActive ? "underline":""
+        } 
+        } 을 만들어준다.
+        그리고 NavLink를 사용하고 그 안에 style={getLinkStyle}을 집어넣는다.
+
+
+
+
 #### 전체상품 페이지(productList.js)
 1. 상품을 새롭게 정렬하는 기능
 
@@ -114,7 +137,7 @@
 
 
 
-#### 이벤트 페이지
+#### 이벤트 페이지(Event.js)
 
 1. 화장품 사진을 클릭하면 체크이미지로 바뀌는 기능(이벤트 페이지)
 
@@ -131,24 +154,6 @@
 
 
 
- #### 헤더(Heade)
-
-1. 스크롤을 내리면 새로운 메뉴창이 뜨게 하는 기능
-    
-        Header 컴포넌트에 header2를 만들어서 또다른 header를 만든다. 
-        jquery를 이용해서 헤더의 높이 이상으로 스크롤을 내리면 
-        header2의 display가 flex가 되게하고, 그 외에는 display가 none이 되게 해서
-        평상시에는 보이지 않게 한다.
-
-2. 메뉴를 클릭하면 언더바 생기게하는 기능
-
-        
-        Header 컴포넌트에 function getLinkStyle({isActive}){
-        return {
-            textDecoration:isActive ? "underline":""
-        } 
-        } 을 만들어준다.
-        그리고 NavLink를 사용하고 그 안에 style={getLinkStyle}을 집어넣는다.
 
 
 
