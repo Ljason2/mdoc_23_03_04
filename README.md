@@ -16,9 +16,15 @@
 - React, jquery, javascript, html5, css
 
 <img src="https://jason-img.s3.amazonaws.com/mdoc/react.png" style="width:100px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/jquery.png" style="width:126px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/js.png" style="width:56px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/html5.png" style="width:56px"> <img src="https://jason-img.s3.amazonaws.com/mdoc/css.png" style="width:56px">
-## 개발환경
 
-        VScode, npm, Parcel-bundler, Node.js, AWS:S3
+## 개발환경
+- VScode, npm, Parcel-bundler, Node.js, AWS:S3
+
+<img src="https://jason-img.s3.amazonaws.com/mdoc/vscode.png" style="width:90px">
+<img src="https://jason-img.s3.amazonaws.com/mdoc/npm.png" style="width:154px">
+<img src="https://jason-img.s3.amazonaws.com/mdoc/parcel.jfif" style="width:173px"> 
+<img src="https://jason-img.s3.amazonaws.com/mdoc/nodejs.png" style="width:91px">
+<img src="https://jason-img.s3.amazonaws.com/mdoc/aws.png" style="width:92px">
 
 
 ## 배포링크
